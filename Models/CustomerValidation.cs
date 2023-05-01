@@ -6,38 +6,23 @@ namespace registro_hotel_mox_it.Models
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-
-
             var customer = (Customer)validationContext.ObjectInstance;
 
             if (customer.CheckInDate.HasValue && customer.CheckOutDate.HasValue)
             {
                 if (customer.CheckInDate.Value > customer.CheckOutDate.Value)
                 {
-                    return new ValidationResult("El Check-in debe ser previo al Check-Out. Revise las fechas por favor.");
+                    return new ValidationResult("Check-in must be prior to Check-Out. Check dates please.");
                 }
             }
 
             if (customer.CheckInDate.HasValue && customer.CheckInDate.Value < DateTime.Now.Date)
             {
-                return new ValidationResult("El Check-In debe ser una fecha válida. Desde hoy en adelante.");
+                return new ValidationResult("Check-in date must be valid. From now on.");
             }
-
-            /*if (customer.Room.HasValue && IsRoomAlreadyUsed(customer.Room.Value))
-            {
-                return new ValidationResult("La habitación ya ha sido utilizada en una reserva anterior.");
-            }*/
-
-
-
             return ValidationResult.Success;
         }
 
-        private bool IsRoomAlreadyUsed(int roomNumber)
-        {
-            //TO-DO Realizar validacion
-            throw new NotImplementedException();
-        }
     }
 }
 
