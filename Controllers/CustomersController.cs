@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using registro_hotel_mox_it.Data;
 using registro_hotel_mox_it.Models;
 
+
 namespace registro_hotel_mox_it.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
+
         private readonly ApplicationDbContext _context;
 
         public CustomersController(ApplicationDbContext context)
@@ -22,9 +21,9 @@ namespace registro_hotel_mox_it.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-              return _context.Customers != null ? 
-                          View(await _context.Customers.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Customer'  is null.");
+            return _context.Customers != null ?
+                        View(await _context.Customers.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Customer'  is null.");
         }
 
         // GET: Customers/Details/5
@@ -155,14 +154,14 @@ namespace registro_hotel_mox_it.Controllers
             {
                 _context.Customers.Remove(customer);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CustomerExists(int id)
         {
-          return (_context.Customers?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Customers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
