@@ -12,6 +12,7 @@ namespace registro_hotel_mox_it.Models
 
         public int? Room { get; set; }
 
+
         [Display(Name = "Check-In")]
         public DateTime? CheckInDate { get; set; }
 
