@@ -12,10 +12,10 @@ namespace registro_hotel_mox_it.Models
 
         public int? Room { get; set; }
 
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Check In Date")]
         public DateTime? CheckInDate { get; set; }
 
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Check Out Date")]
         public DateTime? CheckOutDate { get; set; }
     }
 }

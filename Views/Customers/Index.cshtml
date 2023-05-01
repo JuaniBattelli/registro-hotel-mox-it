@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<registro_hotel_mox_it.Models.Customer>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <!DOCTYPE html>
 
@@ -13,9 +15,10 @@
 </head>
 <body>
 <p>
-    <a asp-action="Create">Create New</a>
+    <button> <a asp-action="Create">New Customer</a> </button>
+    
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>
@@ -30,7 +33,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.CheckOutDate)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -59,3 +61,5 @@
 </table>
 </body>
 </html>
+
+
