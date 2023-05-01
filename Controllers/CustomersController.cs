@@ -58,9 +58,9 @@ namespace registro_hotel_mox_it.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Room,CheckInDate,CheckOutDate")] Customer customer)
         {
-            var dbId = await _context.Customers.SingleOrDefaultAsync(c => c.Room == customer.Room);
+            var dbRoom = await _context.Customers.SingleOrDefaultAsync(c => c.Room == customer.Room);
 
-            if (dbId != null)
+            if (dbRoom != null)
                 ModelState.AddModelError("Room", "Room Already Taken.");
 
             if (ModelState.IsValid)
