@@ -8,14 +8,15 @@ namespace registro_hotel_mox_it.Models
 
         [Required]
         [StringLength(50)]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         public int? Room { get; set; }
 
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Check-In")]
         public DateTime? CheckInDate { get; set; }
 
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Check-Out")]
+        [CustomerValidation]
         public DateTime? CheckOutDate { get; set; }
     }
 }
