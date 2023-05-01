@@ -23,9 +23,20 @@ namespace registro_hotel_mox_it.Models
                 return new ValidationResult("El Check-In debe ser una fecha válida. Desde hoy en adelante.");
             }
 
+            if (customer.Room.HasValue && IsRoomAlreadyUsed(customer.Room.Value))
+            {
+                return new ValidationResult("La habitación ya ha sido utilizada en una reserva anterior.");
+            }
+
 
 
             return ValidationResult.Success;
+        }
+
+        private bool IsRoomAlreadyUsed(int roomNumber)
+        {
+            //TO-DO Realizar validacion
+            throw new NotImplementedException();
         }
     }
 }
