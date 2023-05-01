@@ -15,8 +15,7 @@
 </head>
 <body>
 <p>
-    <button> <a asp-action="Create">New Customer</a> </button>
-    
+        <button class="btn btn-primary btn-sm"><a asp-action="Create" style="color: white; text-decoration: none;">New Customer</a></button>
 </p>
 <table class="table table-bordered table-hover">
     <thead>
@@ -51,9 +50,11 @@
                 @Html.DisplayFor(modelItem => item.CheckOutDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <button class="btn btn-dark btn-sm"><a asp-action="Details" asp-route-id="@item.Id" style="color: white; text-decoration: none;">Details</a></button>
+                <button class="btn btn-warning btn-sm"><a asp-action="Edit" asp-route-id="@item.Id" style="color: white; text-decoration: none;">Edit</a></button>
+                <button class="btn btn-primary btn-sm"><a asp-action="Delete" asp-route-id="@item.Id" style="color: white; text-decoration: none;">Delete</a></button>
+
+                
             </td>
         </tr>
 }
